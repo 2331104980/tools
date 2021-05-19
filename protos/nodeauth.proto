@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package nodeauth;
+
+service NodeAuthSrv {
+    rpc VerifyTicket(VerifyTicketRequest) returns (VerifyTicketResponse) {}
+}
+message VerifyTicketRequest {
+    int32 nation = 1; // 区号
+    string mobile = 2; // 手机号
+    string email = 3; // 邮箱
+    string ticket = 4; // 验证码换取的token
+}
+message VerifyTicketResponse {
+    bool flag = 1; // 验证是否通过
+}
