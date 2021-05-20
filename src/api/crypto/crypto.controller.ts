@@ -12,6 +12,11 @@ export class CryptoController {
     return { sign }
   }
 
-
+  @Post('/desdecrypt')
+  async desDecrypt(@Body() body: any) {
+    const { algorithm, text, key, iv } = body;
+    let des = this.cryptoService.desDecrypt(algorithm, text, key, iv);
+    return des;
+  }
 
 }
