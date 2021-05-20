@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { RPCClientService } from '../service/rpc.service';
+import { RPCClientService } from '../../service/rpc.service';
 
 @Controller('rpc')
 export class RPCClientController {
