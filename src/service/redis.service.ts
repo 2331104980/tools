@@ -3,6 +3,7 @@ import * as redis from 'redis';
 
 @Injectable()
 export class RedisService {
+    //todo 如果第一次连接不成功，后面连接会有问题
     private pools = {
 
     }
@@ -15,7 +16,7 @@ export class RedisService {
         }
         const client = redis.createClient(port, host, { db: config.db });
         client.on("error", function (error) {
-            client.disconnect()
+            client.quit()
             console.error(error);
         });
         if (config.password) {

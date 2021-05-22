@@ -142,4 +142,78 @@ export class RedisController {
             })
         });
     }
+    @Post('/del')
+    async del(@Body() body: any) {
+        const { host, port, password, key, db } = body;
+        const client = this.redis.createClient(port, host, { db, password });
+        //todo
+        return new Promise((resolve, reject) => {
+            client.del(key, (err, data) => {
+                if (err) {
+                    console.log(err)
+                }
+                resolve(data)
+            })
+        });
+    }
+    //todo lpush
+    @Post('/lpush')
+    async lpush(@Body() body: any) {
+        const { host, port, password, key, value, db } = body;
+        const client = this.redis.createClient(port, host, { db, password });
+        //todo
+        return new Promise((resolve, reject) => {
+            client.lpush(key, value, (err, data) => {
+                if (err) {
+                    console.log(err)
+                }
+                resolve(data)
+            })
+        });
+    }
+    //todo lpop
+    @Post('/lpop')
+    async lpop(@Body() body: any) {
+        const { host, port, password, key, db } = body;
+        const client = this.redis.createClient(port, host, { db, password });
+        //todo
+        return new Promise((resolve, reject) => {
+            client.lpop(key, (err, data) => {
+                if (err) {
+                    console.log(err)
+                }
+                resolve(data)
+            })
+        });
+    }
+    //todo rpush
+    @Post('/rpush')
+    async rpush(@Body() body: any) {
+        const { host, port, password, key, value, db } = body;
+        const client = this.redis.createClient(port, host, { db, password });
+        //todo
+        return new Promise((resolve, reject) => {
+            client.rpush(key, value, (err, data) => {
+                if (err) {
+                    console.log(err)
+                }
+                resolve(data)
+            })
+        });
+    }
+    //todo rpop
+    @Post('/rpop')
+    async rpop(@Body() body: any) {
+        const { host, port, password, key, db } = body;
+        const client = this.redis.createClient(port, host, { db, password });
+        //todo
+        return new Promise((resolve, reject) => {
+            client.rpop(key, (err, data) => {
+                if (err) {
+                    console.log(err)
+                }
+                resolve(data)
+            })
+        });
+    }
 }
