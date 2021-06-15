@@ -10,7 +10,7 @@
         "skipFiles": [
             "<node_internals>/**"
         ],
-        "program": "${workspaceFolder}/dist/api/main.js",
+        "program": "${workspaceFolder}/dist/src/api/main.js",
         // "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": [
             "${workspaceFolder}/dist/**/*.js"
@@ -18,3 +18,5 @@
         "runtimeExecutable": "/Users/snail/.nvm/versions/node/v12.22.1/bin/node"
     }]
 }
+
+

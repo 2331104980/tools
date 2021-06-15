@@ -1,5 +1,6 @@
-import { Body, Controller, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
 import { MysqlService } from '../../service/mysql.service';
+import config from '../../../config/index.config';
 
 @Controller('mysql')
 export class MysqlController {
@@ -12,6 +13,12 @@ export class MysqlController {
         let data = await this.mysqlService.execSql(host, user, password, port, database, connectionLimit, supportBigNumbers, bigNumberStrings, sql, params);
         return data;
     }
+
+    @Get('/')
+    public get() {
+        return config;
+    }
+
 }
 
 

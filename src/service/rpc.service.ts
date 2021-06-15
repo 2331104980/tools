@@ -21,7 +21,7 @@ export class RPCClientService {
     async request(host, packagename, serverName, methodName, params, protoPath): Promise<any> {
         return new Promise((resolve, reject) => {
             console.log()
-            const PROTO_PATH = path.join(__dirname, `../../protos/${protoPath}`)
+            const PROTO_PATH = path.join(__dirname, `../../../protos/${protoPath}`)
             const packageDefinition = protoLoader.loadSync(
                 PROTO_PATH,
                 {
@@ -40,7 +40,7 @@ export class RPCClientService {
             // 构造调用服务的方法：使用事件或者回调函数去获得结果
             function log(error, response) {
                 if (error) {
-                    // //   console.log(error);
+                    console.log(error);
                     // return;
                     resolve(null);
                 } else {

@@ -13,6 +13,7 @@ export class RedisController {
         const client = this.redis.createClient(port * 1, host, { db, password });
         return new Promise((resolve, reject) => {
             client.get(key, function (err, data) {
+                // client.quit(true)
                 if (err) {
                     throw err
                 }

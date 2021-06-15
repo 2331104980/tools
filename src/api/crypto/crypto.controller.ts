@@ -1,9 +1,11 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CryptoService } from './crypto.service';
+import config from '../../../config/index.config';
 
 @Controller('crypto')
 export class CryptoController {
   constructor(private readonly cryptoService: CryptoService) { }
+
 
   @Post('/desencrypto')
   async desEncrypto(@Body() body: any) {
