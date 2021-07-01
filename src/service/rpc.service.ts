@@ -42,7 +42,7 @@ export class RPCClientService {
                 if (error) {
                     console.log(error);
                     // return;
-                    resolve(null);
+                    resolve(error);
                 } else {
                     resolve(response)
                 }
